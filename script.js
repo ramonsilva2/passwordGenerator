@@ -12,6 +12,7 @@ const charPass = "qwertyuiopa1234567890sdfghjklzxcvbnm";
 let senha = Math.floor(Math.random() * (36 - 0) + 0);
 let sizePass = 8;
 
+
 oito.addEventListener('click', () => {
     sizePass = 8;
     oito.style.border = '3px solid red';
@@ -51,6 +52,19 @@ btnClean.addEventListener("click", () => {
     pass.innerHTML = `<input type="text" placeholder="Gere Sua Senha">`
 });
 
+
+
+
+
+function gerarSenha() {
+    
+    for(let i = 0; i < sizePass; i++) {
+        const posicao = Math.floor(Math.random() * (36 - 0) + 0);
+        senha += charPass[posicao];
+    }
+    
+}
+
 function copyPassword() {
     const btnCopy = document.getElementById('btn-copy');
     btnCopy.addEventListener('click', () => {
@@ -58,13 +72,4 @@ function copyPassword() {
         document.execCommand('copy');
         alert("Senha Copiada!");
     });
-}
-
-function gerarSenha() {
-
-    for(let i = 0; i < sizePass; i++) {
-        const posicao = Math.floor(Math.random() * (36 - 0) + 0);
-        senha += charPass[posicao];
-    }
-
 }
